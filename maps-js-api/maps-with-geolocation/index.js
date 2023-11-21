@@ -13,7 +13,7 @@ function initMap() {
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Pan to Current Location";
+  locationButton.textContent = "現在地情報を取得する";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
@@ -27,13 +27,13 @@ function initMap() {
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
+          infoWindow.setContent("現在地はここです");
           infoWindow.open(map);
           map.setCenter(pos);
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
-        },
+        }
       );
     } else {
       // Browser doesn't support Geolocation
@@ -47,7 +47,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setContent(
     browserHasGeolocation
       ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation.",
+      : "Error: Your browser doesn't support geolocation."
   );
   infoWindow.open(map);
 }
